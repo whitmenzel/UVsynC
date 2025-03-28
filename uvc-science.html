@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVsynC - UVC Science</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        /* Additional styles for the UVC Science page */
+        :root {
+            --primary-color: #61dafb;
+            --accent-color: #00c853;
+            --dark-bg: #121212;
+            --dark-bg-lighter: #1e1e1e;
+            --text-color: #ffffff;
+            --border-color: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        
+        .uvsync-logo .uv {
+            color: var(--primary-color);
+        }
+        
+        .uvsync-logo .syn {
+            color: var(--text-color);
+        }
+        
+        .uvsync-logo .c {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--primary-color);
+        }
+        
+        .page-header {
+            padding: 120px 0 60px;
+            background-color: var(--dark-bg-lighter);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .science-content {
+            padding: 80px 0;
+            background-color: var(--dark-bg);
+        }
+        
+        .science-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 50px;
+            align-items: start;
+        }
+        
+        .science-text h2 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .science-text h3 {
+            color: var(--primary-color);
+            margin: 30px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .science-text p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .wavelength-spectrum {
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to right, #7b1fa2, #6200ea, #304ffe, #2962ff, #0091ea, #00b8d4, #00bfa5, #00c853);
+            border-radius: 5px;
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .wavelength-marker {
+            position: absolute;
+            top: -15px;
+            width: 2px;
+            height: 90px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .wavelength-label {
+            position: absolute;
+            top: 70px;
+            transform: translateX(-50%);
+            color: var(--text-color);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        
+        .science-facts {
+            background-color: var(--dark-bg-lighter);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .science-facts h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        
+        .science-facts ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .science-facts li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .science-facts li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        .research-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .sidebar-box {
+            background-color: var(--dark-bg-lighter);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .sidebar-box h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        
+        .sidebar-box ul {
+            list-style: none;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        
+        .sidebar-box li {
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+            font-size: 0.95rem;
+        }
+        
+        .sidebar-box li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .contact-research {
+            background-color: var(--dark-bg-lighter);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        
+        .contact-research h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-color);
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-links a {
+            color: var(--text-color);
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .science-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-sidebar {
+                order: 2;
+            }
+            
+            footer .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .footer-links a {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="uvsync-logo">
+                    <span class="uv">UV</span>
+                    <span class="syn">syn</span>
+                    <span class="c">C</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="healthcare-data.html">Research</a></li>
+                    <li><a href="uvc-science.html" class="active">UVC Science</a></li>
+                    <li><a href="coming-soon.html">Solutions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>The Science of UVC Technology</h1>
+            <p>Understanding how ultraviolet light disrupts microbial DNA</p>
+        </div>
+    </section>
+
+    <section class="science-content">
+        <div class="container">
+            <div class="science-grid">
+                <div class="science-text">
+                    <h2>How UVC Light Disrupts Microbial DNA</h2>
+                    <p>Ultraviolet (UV) light is a form of electromagnetic radiation with wavelengths shorter than visible light but longer than X-rays. UV light is categorized into three main types based on wavelength: UVA (315-400 nm), UVB (280-315 nm), and UVC (100-280 nm).</p>
+                    
+                    <div class="wavelength-spectrum">
+                        <div class="wavelength-marker" style="left: 10%;">
+                            <div class="wavelength-label">100nm<br>UVC</div>
+                        </div>
+                        <div class="wavelength-marker" style="left: 30%;">
+                            <div class="wavelength-label">280nm</div>
+                        </div>
+                        <div class="wavelength-marker" style="left: 43%;">
+                            <div class="wavelength-label">315nm<br>UVB</div>
+                        </div>
+                        <div class="wavelength-marker" style="left: 60%;">
+                            <div class="wavelength-label">400nm<br>UVA</div>
+                        </div>
+                        <div class="wavelength-marker" style="left: 90%;">
+                            <div class="wavelength-label">700nm<br>Visible Light</div>
+                        </div>
+                    </div>
+                    
+                    <p>UVC light, particularly around the 254 nm wavelength, is exceptionally effective at disrupting the DNA and RNA of microorganisms, preventing them from reproducing and effectively neutralizing them.</p>
+                    
+                    <h3>The Molecular Mechanism</h3>
+                    <p>When UVC light penetrates a microorganism, it's absorbed by nucleic acids (DNA and RNA). The high energy from UVC photons causes adjacent thymine bases in DNA to form thymine dimers – abnormal chemical bonds between adjacent thymine bases. These dimers prevent DNA from replicating correctly.</p>
+                    
+                    <p>This disruption of the DNA structure prevents the microorganism from reproducing and performing essential cellular functions, leading to its inactivation or death. UVC treatment is particularly effective against bacteria, viruses, molds, and other pathogens commonly found in environmental biofilms.</p>
+                    
+                    <div class="science-facts">
+                        <h3>Key UVC Facts</h3>
+                        <ul>
+                            <li><strong>Wavelength Specificity:</strong> UVC light at 254 nm is closest to DNA's absorption peak (260 nm), making it most effective for germicidal applications</li>
+                            <li><strong>Exposure Requirements:</strong> Effectiveness depends on intensity (dose) and exposure time</li>
+                            <li><strong>No Chemical Residue:</strong> UVC leaves no harmful residues, making it environmentally friendly</li>
+                            <li><strong>Surface and Air Treatment:</strong> Effective for both surface decontamination and air disinfection</li>
+                            <li><strong>Resistance-Free:</strong> Microorganisms cannot develop resistance to the physical mechanism of UVC</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>Far-UVC: The Next Generation</h3>
+                    <p>Recent research has focused on Far-UVC light (207-222 nm), which maintains strong germicidal properties while being safer for human exposure. At these shorter wavelengths, the light cannot penetrate the outer dead layer of human skin or the tear layer of the eye, but can still effectively inactivate microorganisms, which are much smaller in size.</p>
+                    
+                    <h3>UVsynC's Approach</h3>
+                    <p>Our technology uses precisely controlled UVC light at optimal wavelengths to target environmental biofilms. We combine advanced optics with intelligent control systems to maximize effectiveness while ensuring safety.</p>
+                    
+                    <p>The UVsynC system delivers UVC light to disrupt microbial DNA in targeted areas, preventing colony formation and biofilm development in critical environments such as healthcare facilities, food processing plants, and other sensitive settings.</p>
+                    
+                    <div class="contact-research">
+                        <h3>Interested in our UVC technology?</h3>
+                        <p>Our team works with UVC science for practical applications. For more information about our approach and how it might address your needs, please contact us.</p>
+                        <a href="contact.html" class="btn">Contact Us</a>
+                    </div>
+                </div>
+                
+                <div class="research-sidebar">
+                    <div class="sidebar-box">
+                        <h3>UVC Applications</h3>
+                        <ul>
+                            <li>Healthcare facility disinfection</li>
+                            <li>Water treatment systems</li>
+                            <li>Air purification</li>
+                            <li>Food processing sanitation</li>
+                            <li>Laboratory decontamination</li>
+                            <li>Equipment sterilization</li>
+                            <li>Biofilm prevention in drainage systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-box">
+                        <h3>Scientific Advantages</h3>
+                        <ul>
+                            <li>Non-chemical disinfection</li>
+                            <li>No microbial resistance development</li>
+                            <li>Effective against bacteria, viruses, and fungi</li>
+                            <li>Environmentally sustainable</li>
+                            <li>No harmful residues</li>
+                            <li>Complementary to existing protocols</li>
+                            <li>Continuous protection capabilities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-box">
+                        <h3>Further Reading</h3>
+                        <ul>
+                            <li><a href="#">UVC Technology in Healthcare Settings</a></li>
+                            <li><a href="#">The Evolution of Germicidal UV Science</a></li>
+                            <li><a href="#">Safety Considerations for UVC Applications</a></li>
+                            <li><a href="#">Comparative Studies: UVC vs. Chemical Disinfection</a></li>
+                            <li><a href="#">Far-UVC: The Future of Safe Continuous Disinfection</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 UVsynC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

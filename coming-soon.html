@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVsynC - Solutions Coming Soon</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" class="uvsync-logo">
+                    <span class="uv">UV</span>
+                    <span class="syn">syn</span>
+                    <span class="c">C</span>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="healthcare-data.html">Research</a></li>
+                    <li><a href="uvc-science.html">UVC Science</a></li>
+                    <li><a href="coming-soon.html" class="active">Solutions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Solutions Coming Soon</h1>
+            <p>We're developing something revolutionary</p>
+        </div>
+    </section>
+
+    <section class="coming-soon-content">
+        <div class="container">
+            <div class="coming-soon-grid">
+                <div class="coming-soon-text">
+                    <h2>Innovation in Progress</h2>
+                    <p>At UVsynC, we're finalizing development of our groundbreaking UV technology solution designed to address persistent environmental contamination challenges.</p>
+                    
+                    <div class="technology-highlights">
+                        <h3>Technology Highlights</h3>
+                        <ul>
+                            <li><strong>Advanced UV-C Application</strong> - Precisely targeted light technology that effectively neutralizes biofilms</li>
+                            <li><strong>IoT Integration</strong> - Smart sensors for real-time monitoring and data analytics</li>
+                            <li><strong>Chemical-Free</strong> - Environmentally sustainable approach without harsh chemicals</li>
+                            <li><strong>Energy Efficient</strong> - Optimized power consumption with targeted activation</li>
+                            <li><strong>Continuous Protection</strong> - Ongoing prevention rather than periodic treatment</li>
+                        </ul>
+                        <p><a href="uvc-science.html">Learn about the science behind UVC technology →</a></p>
+                    </div>
+                    
+                    <div class="countdown">
+                        <h3>Launch Timeline</h3>
+                        <p>Our solution is currently in final testing phases. We anticipate making formal announcements about our technology in Q3 2025.</p>
+                    </div>
+                    
+                    <div class="signup-form">
+                        <h3>Stay Updated</h3>
+                        <p>Join our priority notification list to receive updates on our product launch and early access opportunities.</p>
+                        <form id="notify-form">
+                            <div class="form-row">
+                                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+                                <button type="submit" class="btn">Notify Me</button>
+                            </div>
+                            <div class="form-consent">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">I agree to receive updates about UVsynC products and services.</label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="coming-soon-image">
+                    <img src="images/technology-preview.jpg" alt="Technology Preview">
+                    <div class="early-access">
+                        <h3>Interested in Early Access?</h3>
+                        <p>Select partners will have the opportunity to pilot our technology before public release.</p>
+                        <a href="contact.html" class="btn-secondary">Contact Us About Partnerships</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 UVsynC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Basic form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const notifyForm = document.getElementById('notify-form');
+            if (notifyForm) {
+                notifyForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Here you would typically send the form data to a server
+                    // For this static site, we'll just show a success message
+                    alert('Thank you for your interest! We\'ll notify you when our solution launches.');
+                    notifyForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

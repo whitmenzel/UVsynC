@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    
+    <!-- UVC light ray gradient -->
+    <linearGradient id="uvcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#61dafb" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#61dafb" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="#1e1e1e" />
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="Arial" font-size="20" fill="#ffffff" text-anchor="middle">DNA Disruption by UVC Light</text>
+  
+  <!-- DNA Structure -->
+  <g id="dna-structure" transform="translate(400, 200)">
+    <!-- Left Strand -->
+    <path id="dna-strand-left" d="M-100,150 C-150,100 -150,50 -100,0 C-50,-50 -50,-100 -100,-150" 
+          stroke="#6d8ef7" stroke-width="8" fill="none">
+      <!-- Animation of the strand -->
+      <animate attributeName="d" 
+               values="M-100,150 C-150,100 -150,50 -100,0 C-50,-50 -50,-100 -100,-150;
+                       M-100,150 C-150,100 -150,50 -100,0 C-50,-50 -50,-100 -100,-150;
+                       M-100,150 C-120,100 -120,50 -100,0 C-80,-50 -80,-100 -100,-150;
+                       M-100,150 C-150,100 -150,50 -100,0 C-50,-50 -50,-100 -100,-150"
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </path>
+    
+    <!-- Right Strand -->
+    <path id="dna-strand-right" d="M100,150 C50,100 50,50 100,0 C150,-50 150,-100 100,-150" 
+          stroke="#6d8ef7" stroke-width="8" fill="none">
+      <!-- Animation of the strand -->
+      <animate attributeName="d" 
+               values="M100,150 C50,100 50,50 100,0 C150,-50 150,-100 100,-150;
+                       M100,150 C50,100 50,50 100,0 C150,-50 150,-100 100,-150;
+                       M100,150 C80,100 80,50 100,0 C120,-50 120,-100 100,-150;
+                       M100,150 C50,100 50,50 100,0 C150,-50 150,-100 100,-150"
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </path>
+    
+    <!-- DNA Base Pairs -->
+    <!-- Base Pair 1 (Normal) -->
+    <line x1="-100" y1="120" x2="100" y2="120" stroke="#61dafb" stroke-width="5">
+      <animate attributeName="stroke-width" 
+               values="5;5;5;5" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+      <animate attributeName="stroke" 
+               values="#61dafb;#61dafb;#61dafb;#61dafb" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </line>
+    
+    <!-- Base Pair 2 (Gets damaged) -->
+    <line x1="-100" y1="60" x2="100" y2="60" stroke="#61dafb" stroke-width="5">
+      <animate attributeName="stroke-width" 
+               values="5;5;8;8" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+      <animate attributeName="stroke" 
+               values="#61dafb;#61dafb;#ff4d4d;#ff4d4d" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </line>
+    
+    <!-- Base Pair 3 (Normal) -->
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="#61dafb" stroke-width="5">
+      <animate attributeName="stroke-width" 
+               values="5;5;5;5" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+      <animate attributeName="stroke" 
+               values="#61dafb;#61dafb;#61dafb;#61dafb" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </line>
+    
+    <!-- Base Pair 4 (Gets damaged) -->
+    <line x1="-100" y1="-60" x2="100" y2="-60" stroke="#61dafb" stroke-width="5">
+      <animate attributeName="stroke-width" 
+               values="5;5;8;8" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+      <animate attributeName="stroke" 
+               values="#61dafb;#61dafb;#ff4d4d;#ff4d4d" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </line>
+    
+    <!-- Base Pair 5 (Normal) -->
+    <line x1="-100" y1="-120" x2="100" y2="-120" stroke="#61dafb" stroke-width="5">
+      <animate attributeName="stroke-width" 
+               values="5;5;5;5" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+      <animate attributeName="stroke" 
+               values="#61dafb;#61dafb;#61dafb;#61dafb" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </line>
+  </g>
+  
+  <!-- UVC Light Source -->
+  <g id="uvc-source" transform="translate(150, 100)">
+    <!-- Light Source -->
+    <circle cx="0" cy="0" r="25" fill="#61dafb" filter="url(#glow)">
+      <animate attributeName="opacity" 
+               values="0.7;1;1;0.7" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </circle>
+    
+    <!-- Label -->
+    <text x="0" y="-35" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle">UVC Light</text>
+    <text x="0" y="-15" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle">254nm</text>
+    
+    <!-- Light Rays -->
+    <g id="light-rays">
+      <!-- Ray 1 -->
+      <polygon points="20,-10 250,50 250,30 20,-20" fill="url(#uvcGradient)" opacity="0.6">
+        <animate attributeName="opacity" 
+                 values="0;0;0.6;0.6;0" 
+                 dur="5s" repeatCount="indefinite" begin="0s" />
+      </polygon>
+      
+      <!-- Ray 2 -->
+      <polygon points="20,10 300,100 300,80 20,0" fill="url(#uvcGradient)" opacity="0.6">
+        <animate attributeName="opacity" 
+                 values="0;0;0.6;0.6;0" 
+                 dur="5s" repeatCount="indefinite" begin="0s" />
+      </polygon>
+      
+      <!-- Ray 3 -->
+      <polygon points="10,20 200,180 200,160 0,10" fill="url(#uvcGradient)" opacity="0.6">
+        <animate attributeName="opacity" 
+                 values="0;0;0.6;0.6;0" 
+                 dur="5s" repeatCount="indefinite" begin="0s" />
+      </polygon>
+    </g>
+  </g>
+  
+  <!-- Explanation Text -->
+  <g id="explanation-text">
+    <!-- Stage 1 -->
+    <text x="400" y="350" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle" opacity="1">
+      <tspan x="400" dy="0">Normal DNA Structure</tspan>
+      <animate attributeName="opacity" 
+               values="1;0;0;0;1" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </text>
+    
+    <!-- Stage 2 -->
+    <text x="400" y="350" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0">
+      <tspan x="400" dy="0">UVC Light Exposure</tspan>
+      <animate attributeName="opacity" 
+               values="0;1;0;0;0" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </text>
+    
+    <!-- Stage 3 -->
+    <text x="400" y="350" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0">
+      <tspan x="400" dy="0">Thymine Dimer Formation</tspan>
+      <animate attributeName="opacity" 
+               values="0;0;1;0;0" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </text>
+    
+    <!-- Stage 4 -->
+    <text x="400" y="350" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle" opacity="0">
+      <tspan x="400" dy="0">DNA Replication Blocked</tspan>
+      <animate attributeName="opacity" 
+               values="0;0;0;1;0" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </text>
+  </g>
+  
+  <!-- Markers for Thymine Dimers -->
+  <g id="thymine-dimers" transform="translate(400, 200)">
+    <!-- Dimer 1 -->
+    <g opacity="0">
+      <circle cx="-20" cy="60" r="15" fill="#ff4d4d" opacity="0.3" />
+      <text x="-20" y="64" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">T=T</text>
+      <animate attributeName="opacity" 
+               values="0;0;1;1;0" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </g>
+    
+    <!-- Dimer 2 -->
+    <g opacity="0">
+      <circle cx="-20" cy="-60" r="15" fill="#ff4d4d" opacity="0.3" />
+      <text x="-20" y="-56" font-family="Arial" font-size="10" fill="#ffffff" text-anchor="middle">T=T</text>
+      <animate attributeName="opacity" 
+               values="0;0;1;1;0" 
+               dur="5s" repeatCount="indefinite" begin="0s" />
+    </g>
+  </g>
+  
+  <!-- DNA Replication Blocked Marker -->
+  <g id="replication-blocked" transform="translate(550, 200)" opacity="0">
+    <rect x="-80" y="-25" width="160" height="50" rx="10" ry="10" fill="#2d2d2d" stroke="#ff4d4d" stroke-width="2" />
+    <text x="0" y="0" font-family="Arial" font-size="14" fill="#ff4d4d" text-anchor="middle" dominant-baseline="middle">DNA Replication Blocked</text>
+    <text x="0" y="20" font-family="Arial" font-size="12" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">Microorganism Inactivated</text>
+    
+    <animate attributeName="opacity" 
+             values="0;0;0;1;0" 
+             dur="5s" repeatCount="indefinite" begin="0s" />
+  </g>
+</svg>

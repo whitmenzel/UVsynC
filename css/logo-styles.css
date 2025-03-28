@@ -1,0 +1,51 @@
+/* UVsynC Logo Styles */
+.uvsync-logo {
+    font-family: 'Arial', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+}
+
+.uvsync-logo .uv, 
+.uvsync-logo .c {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #61dafb;
+    text-shadow: 0 0 10px rgba(97, 218, 251, 0.3);
+    line-height: 1;
+}
+
+.uvsync-logo .syn {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6d8ef7;
+    position: relative;
+    margin: 0 0.25rem;
+    transform: translateY(-0.8rem);
+    text-shadow: 0 0 8px rgba(109, 142, 247, 0.3);
+    letter-spacing: -0.5px;
+}
+
+/* Logo hover effects */
+.uvsync-logo:hover .uv,
+.uvsync-logo:hover .c {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(97, 218, 251, 0.6);
+}
+
+.uvsync-logo:hover .syn {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(109, 142, 247, 0.6);
+}
+
+/* Large version for hero sections */
+.uvsync-logo.large .uv, 
+.uvsync-logo.large .c {
+    font-size: 4rem;
+}
+
+.uvsync-logo.large .syn {
+    font-size: 1.8rem;
+    transform: translateY(-1.3rem);
+}
